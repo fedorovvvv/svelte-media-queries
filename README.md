@@ -1,4 +1,4 @@
-# Svelte Css MediaQuery 🐥
+# Svelte CSS media queries 🐥
 
 ### [Demo - Svelte REPL](https://svelte.dev/repl/ffdcf39ff71f4d549961c45880645294?version=3.48.0)
 ### Lightweight, comfortable, like Svelte🐣
