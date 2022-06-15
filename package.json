@@ -1,7 +1,7 @@
 {
     "name": "svelte-css-mediaquery",
     "description": "CSS media queries in Svelte",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "main": "./MediaQuery.svelte",
     "svelte": "./MediaQuery.svelte",
     "repository": "https://github.com/fedorovvvv/svelte-mediaquery",
