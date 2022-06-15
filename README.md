@@ -29,6 +29,10 @@ let:matches={foo}
 ### Examples
 #### Slot
 ```svelte
+<script>
+  import MediaQuery from 'svelte-media-queries'
+</script>
+
 <MediaQuery query='(max-width: 480px)' let:matches>
   {#if matches}
     mobile!!
@@ -38,6 +42,8 @@ let:matches={foo}
 #### Bind
 ```svelte
 <script>
+  import MediaQuery from 'svelte-media-queries'
+
   let matches
 </script>
 
@@ -65,13 +71,17 @@ matches=[boolean, boolean]
 #### You can test this in [Svelte REPL](https://svelte.dev/repl/ffdcf39ff71f4d549961c45880645294?version=3.48.0)🐥
 #### Example
 ```svelte
+<script>
+  import MediaQuery from 'svelte-media-queries'
+</script>
+
 <MediaQuery query={['(max-width: 768px)', '(min-width: 768px) and (max-width: 1280px)', '(min-width: 1280px)']} let:matches>
-	{@const [mobile, tablet, desktop] = matches}
-	<h5>
-		mobile: '(max-width: 768px)' = {mobile}
-		tablet: '(max-width: 1280px)' = {tablet}
-		desktop: '(min-width: 1280px)' = {desktop}
-	</h5>
+  {@const [mobile, tablet, desktop] = matches}
+  <h5>
+    mobile: '(max-width: 768px)' = {mobile}
+    tablet: '(max-width: 1280px)' = {tablet}
+    desktop: '(min-width: 1280px)' = {desktop}
+  </h5>
 </MediaQuery>
 ```
 `{@const}` - [Svelte Docs](https://svelte.dev/docs#template-syntax-const)🐹  
