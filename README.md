@@ -1,6 +1,6 @@
 # Svelte CSS media queries 🐥
 
-### [Demo - Svelte REPL](https://svelte.dev/repl/ffdcf39ff71f4d549961c45880645294?version=3.48.0)
+### [Demo - Svelte REPL](https://svelte.dev/repl/7e97f1a1d1654701a0661e076037d160?version=3.48.0)
 ### Lightweight, comfortable, like Svelte🐣
 
 ## how to install
@@ -68,7 +68,7 @@ Matches will take everything from `query` in order
 ```js
 matches=[boolean, boolean]
 ```
-#### You can test this in [Svelte REPL](https://svelte.dev/repl/ffdcf39ff71f4d549961c45880645294?version=3.48.0)🐥
+#### You can test this in [Svelte REPL](https://svelte.dev/repl/7e97f1a1d1654701a0661e076037d160?version=3.48.0)🐥
 #### Example
 ```svelte
 <script>
