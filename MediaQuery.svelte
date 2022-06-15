@@ -4,7 +4,10 @@
     export let query
     export let matches = false
 
-    const getMatches = (query) => window.matchMedia(query).matches ?? false
+    const getMatches = (query) => {
+        query.replace(/[()]/gi, '')
+        return window.matchMedia(`(${query})`).matches ?? false
+    }
 
     const checkMatches = () => {
         if (typeof query === 'string') {
