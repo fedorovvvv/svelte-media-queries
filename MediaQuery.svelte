@@ -4,7 +4,7 @@
     export let query
     export let matches = false
 
-    const getMatches = (query) => window.matchMedia(query ?? '').matches
+    const getMatches = (query) => window.matchMedia(query).matches ?? false
 
     const checkMatches = () => {
         if (typeof query === 'string') {
