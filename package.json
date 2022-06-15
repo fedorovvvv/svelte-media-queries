@@ -1,0 +1,21 @@
+{
+    "name": "svelte-mediaquery",
+    "description": "CSS media queries in Svelte",
+    "version": "1.0.0",
+    "main": "./MediaQuery.svelte",
+    "svelte": "./MediaQuery.svelte",
+    "repository": "https://github.com/fedorovvvv/svelte-mediaquery",
+    "author": "Nikita Fedorov <alexander.kozlovich@gmail.com>",
+    "keywords": [
+      "svelte",
+      "media query",
+      "css",
+      "media",
+      "query",
+      "sveltejs",
+      "svelte-mediaquery",
+      "svelte mediaquery",
+      "svelte-v3",
+      "svelte3"
+    ]
+  }
