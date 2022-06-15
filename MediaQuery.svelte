@@ -4,15 +4,22 @@
     export let query
     export let matches = false
 
+    let mounted = false
+
     const getMatches = (query) => window.matchMedia(query).matches ?? false
 
     const checkMatches = () => {
-        if (typeof query === 'string') {
-            return matches = getMatches(query)
+        if (mounted) {
+            if (typeof query === 'string') {
+                return matches = getMatches(query)
+            }
+            return matches = query?.flat(Infinity).map(getMatches)
         }
-        return matches = query?.flat(Infinity).map(getMatches)
     }
-    onMount(() => checkMatches)
+    onMount(() => {
+        mounted = true
+        checkMatches()
+    })
     $:checkMatches(query)
 </script>
 
