@@ -2,11 +2,11 @@
     "name": "svelte-media-queries",
     "description": "A light and magical component for CSS media queries🐹",
     "version": "1.1.5",
-    "licence": "MIT",
+    "license": "MIT",
     "main": "./MediaQuery.svelte",
     "svelte": "./MediaQuery.svelte",
     "repository": "https://github.com/fedorovvvv/svelte-media-queries",
-    "author": "Nikita Fedorov <alexander.kozlovich@gmail.com>",
+    "author": "Nikita Fedorov <nikitafedorov7@yandex.ru>",
     "keywords": [
         "svelte",
         "light",
