@@ -9,9 +9,5 @@ jobs:
       name: 'setup node'
       with:
         node-version: '13.x'
-
-    - name: 'version patch'
-      run: npm version patch
-      
     - name: 'publish'
       run: npm publish
