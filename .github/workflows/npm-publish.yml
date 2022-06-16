@@ -1,18 +1,19 @@
-name: Publish Package to npmjs
+name: 'test my project'
 on:
-  release:
-    types: [created]
+  push:
+  pull-request:
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test-job:
+    runs-on: ubuntu-16.04
     steps:
-      - uses: actions/checkout@v3
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      name: 'setup node'
+      with:
+        node-version: '13.x'
+
+    - name: 'install'
+      run: npm i
+
+    - name: 'test'
+      run: npm run test
