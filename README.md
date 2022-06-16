@@ -5,7 +5,7 @@
 
 ## how to install
 ```npm
-npm i svelte-css-mediaquery
+npm i svelte-media-queries
 ```
 ## how to use
 
