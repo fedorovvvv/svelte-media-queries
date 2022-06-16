@@ -12,10 +12,6 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://www.npmjs.com/package/svelte-media-queries'
-      - name: 'version patch'
-      - run: npm version patch
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: 'publish'
       - run: npm publish
         env:
