@@ -1,6 +1,5 @@
 name: 'npm-publish'
-on:
-  release:
+on: release
 jobs:
   publish:
     runs-on: ubuntu-16.04
