@@ -1,9 +1,9 @@
-name: 'test my project'
+name: 'npm-publish'
 on:
   push:
-  pull-request:
+  create:
 jobs:
-  test-job:
+  publish:
     runs-on: ubuntu-16.04
     steps:
     - uses: actions/checkout@v2
@@ -12,8 +12,8 @@ jobs:
       with:
         node-version: '13.x'
 
-    - name: 'install'
-      run: npm i
-
-    - name: 'test'
-      run: npm run test
+    - name: 'version patch'
+      run: npm version patch
+      
+    - name: 'publish'
+      run: npm publish
