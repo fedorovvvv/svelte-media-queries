@@ -6,8 +6,6 @@ import type { MatchesArray } from '$lib/components/MediaQuery.types';
 	
 	let mobile
 	let innerWidth = 0
-    let matches:MatchesArray = []
-    let checked:boolean
 </script>
 <svelte:window bind:innerWidth/>
 <main>
@@ -38,16 +36,14 @@ import type { MatchesArray } from '$lib/components/MediaQuery.types';
 		Slot and the <code>let:</code> directive (Array):<i>boolean[]</i>
 	</h2>
 	<code>['(max-width: 768px)', '(min-width: 768px) and (max-width: 1280px)', '(min-width: 1280px)']</code>
-    <input type="checkbox" bind:checked>
-    {#if checked}
-        <MediaQuery query={['(max-width: 768px)', '(min-width: 768px) and (max-width: 1280px)', '(min-width: 1280px)']} bind:matches>
-            <h5>
-                mobile: '(max-width: 768px)' = {matches[0]}<br><br>
-                tablet: '(max-width: 1280px)' = {matches[1]}<br><br>
-                desktop: '(min-width: 1280px)' = {matches[2]}
-            </h5>
-        </MediaQuery>
-    {/if}
+    <MediaQuery query={['(max-width: 768px)', '(min-width: 768px) and (max-width: 1280px)', '(min-width: 1280px)']} let:matches>
+        {@const [mobile, tablet, desktop] = matches}
+        <h5>
+            mobile: '(max-width: 768px)' = {mobile}<br><br>
+            tablet: '(max-width: 1280px)' = {tablet}<br><br>
+            desktop: '(min-width: 1280px)' = {desktop}
+        </h5>
+    </MediaQuery>
 </main>
 
 <style>
