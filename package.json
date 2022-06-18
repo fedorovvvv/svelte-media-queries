@@ -1,7 +1,7 @@
 {
     "name": "svelte-media-queries",
     "description": "A light and magical Svelte component for CSS media queries🐹",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "license": "MIT",
     "main": "./components/MediaQuery.svelte",
     "svelte": "./components/MediaQuery.svelte",
