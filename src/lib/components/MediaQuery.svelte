@@ -6,20 +6,23 @@
     import { mediaStore } from "$lib/utils/mediaStore";
 
     import { onDestroy, onMount } from "svelte";
-    import type { MatchesAny, MatchesArray, QueryAny } from "./MediaQuery.types";
+    import type { MatchesAny, MatchesArray, MatchesType, QueryAny } from "./MediaQuery.types";
 
     export let query:QueryAny = ''
-    export let matches:MatchesAny = false
+    export let matches:MatchesType<typeof query> = false
     export let matchesArray:MatchesArray = []
     
     let mounted = false
-    
+    //@ts-expect-error
     let store:ReturnType<typeof mediaStore>
     
     const updateMatches = (...watches:any) => {
         if(query) {
             matchesArray = Array.isArray($store) ? $store : []
-            matches = $store
+            //@ts-expect-error
+            matches = $store ?? (
+                Array.isArray(query) ? [] : false
+            )
         } else {
             matches = false
             matchesArray = []
@@ -56,6 +59,5 @@
     
     $:update(query)
     $:updateMatches($store)
-    $:console.log($store)
 </script>
-<slot {matches}/>
+<slot {matches} {matchesArray}/>
