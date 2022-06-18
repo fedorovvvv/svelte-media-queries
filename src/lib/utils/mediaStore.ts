@@ -1,4 +1,3 @@
-import { browser } from "$app/env"
 import { writable, type Writable } from "svelte/store"
 import type { Matches, MatchesArray, Query, QueryAny, QueryArray } from "../components/MediaQuery.types"
 import { autoCalc } from "./calc"
@@ -15,35 +14,34 @@ export function mediaStore(query:Query):MediaStore
 export function mediaStore(query:QueryArray):MediaStore<MatchesArray>
 
 export function mediaStore(query:QueryAny) {
-    if(browser) {
-        if (typeof query === 'string') {
-            const {subscribe, set} = writable<Matches>()
-            const mql = MQL.inline(query)
-            const handleChange = () => set(autoCalc(mql))
-    
-            handleChange()
-            mql.addEventListener('change', handleChange)
-    
-            return {
-                subscribe,
-                destroy() {
-                    mql.removeEventListener('change', handleChange)
-                }
+    if (typeof window === "undefined") return writable();
+    if (typeof query === 'string') {
+        const {subscribe, set} = writable<Matches>()
+        const mql = MQL.inline(query)
+        const handleChange = () => set(autoCalc(mql))
+
+        handleChange()
+        mql.addEventListener('change', handleChange)
+
+        return {
+            subscribe,
+            destroy() {
+                mql.removeEventListener('change', handleChange)
             }
         }
-        if (Array.isArray(query)) {
-            const {subscribe, set} = writable<MatchesArray>()
-            const mql = MQL.array(query)
-            const handleChange = () => set(autoCalc(mql))
-    
-            handleChange()
-            mql.map(mq => mq.addEventListener('change', handleChange))
-    
-            return {
-                subscribe,
-                destroy() {
-                    mql.map(mq => mq.removeEventListener('change', handleChange))
-                }
+    }
+    if (Array.isArray(query)) {
+        const {subscribe, set} = writable<MatchesArray>()
+        const mql = MQL.array(query)
+        const handleChange = () => set(autoCalc(mql))
+
+        handleChange()
+        mql.map(mq => mq.addEventListener('change', handleChange))
+
+        return {
+            subscribe,
+            destroy() {
+                mql.map(mq => mq.removeEventListener('change', handleChange))
             }
         }
     }
