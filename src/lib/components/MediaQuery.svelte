@@ -1,37 +1,61 @@
 <script context='module' lang='ts'>
-    export type Query = string
-    export type QueryAny = Query | Query[]
-
-    export type Matches = boolean
-    export type MatchesArray = Matches[]
-    export type MatchesAny = Matches | MatchesArray
-    
+    export const createMediaStore = mediaStore
 </script>
 
 <script lang='ts'>
-    import { onMount } from "svelte";
+    import { mediaStore } from "$lib/utils/mediaStore";
 
-    export let query:QueryAny
+    import { onDestroy, onMount } from "svelte";
+    import type { MatchesAny, MatchesArray, QueryAny } from "./MediaQuery.types";
+
+    export let query:QueryAny = ''
     export let matches:MatchesAny = false
-    export let matchesArray:MatchesArray = [false]
-
+    export let matchesArray:MatchesArray = []
+    
     let mounted = false
-
-    const getMatches = (query:Query) => window.matchMedia(query).matches ?? false
-
-    const checkMatches = (query:QueryAny) => {
-        if (mounted) {
-            if (typeof query === 'string') {
-                return matches = getMatches(query)
-            }
+    
+    let store:ReturnType<typeof mediaStore>
+    
+    const updateMatches = (...watches:any) => {
+        if(query) {
+            matchesArray = Array.isArray($store) ? $store : []
+            matches = $store
+        } else {
+            matches = false
+            matchesArray = []
         }
     }
+
+    const start = () => {
+        if (mounted) {
+            //@ts-expect-errors
+            store = createMediaStore(query)
+            updateMatches()
+        }
+    }
+    
+    const destroy = () => {
+        updateMatches()
+        store?.destroy
+    }
+    
+    const update = (...watchers:any) => {
+        destroy()
+        query && start()
+    }
+
+    
     onMount(() => {
         mounted = true
-        checkMatches(query)
+        start()
     })
-    $:checkMatches(query)
+    
+    onDestroy(() => {
+        destroy()
+    })
+    
+    $:update(query)
+    $:updateMatches($store)
+    $:console.log($store)
 </script>
-
-<svelte:window on:resize={() => checkMatches(query)}/>
 <slot {matches}/>
