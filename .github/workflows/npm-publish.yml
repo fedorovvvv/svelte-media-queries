@@ -12,6 +12,13 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm publish
+      - name: 'install'
+        run: npm install
+      - name: 'create package'
+        run: npm run package
+      - name: 'version patch'
+        run: npm version patch
+      - name: 'publish'
+        run: npm publish ./package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
