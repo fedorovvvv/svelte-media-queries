@@ -24,7 +24,6 @@
             if (typeof query === 'string') {
                 return matches = getMatches(query)
             }
-            return matches = matchesArray = query?.flat(Infinity).map(getMatches)
         }
     }
     onMount(() => {
