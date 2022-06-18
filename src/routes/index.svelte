@@ -1,11 +1,13 @@
 <script lang='ts'>
-	import MediaQuery, { type MatchesAny, type MatchesArray } from '$lib/components/MediaQuery.svelte'
-	// import Dynamic from './Dynamic.svelte'
+	import MediaQuery from '$lib/components/MediaQuery.svelte'
+import type { MatchesArray } from '$lib/components/MediaQuery.types';
+	import Dynamic from './Dynamic.svelte'
 
 	
 	let mobile
 	let innerWidth = 0
     let matches:MatchesArray = []
+    let checked:boolean
 </script>
 <svelte:window bind:innerWidth/>
 <main>
@@ -13,12 +15,12 @@
 		Change the size of this area {innerWidth}px🐥
 	</h1>
 	
-	<!-- <h2>
+	<h2>
 		Dynamic parameters (smart🐹)
-	</h2> -->
-	<!-- <Dynamic/> -->
+	</h2>
+	<Dynamic/>
 	
-	<!-- <hr> -->
+	<hr>
 
 	<h2>
 		Slot and the <code>let:</code> directive<i>boolean</i>
@@ -36,13 +38,16 @@
 		Slot and the <code>let:</code> directive (Array):<i>boolean[]</i>
 	</h2>
 	<code>['(max-width: 768px)', '(min-width: 768px) and (max-width: 1280px)', '(min-width: 1280px)']</code>
-	<MediaQuery query={['(max-width: 768px)', '(min-width: 768px) and (max-width: 1280px)', '(min-width: 1280px)']} bind:matches>
-		<h5>
-			mobile: '(max-width: 768px)' = {matches[0]}<br><br>
-			tablet: '(max-width: 1280px)' = {matches[1]}<br><br>
-			desktop: '(min-width: 1280px)' = {matches[2]}
-		</h5>
-	</MediaQuery>
+    <input type="checkbox" bind:checked>
+    {#if checked}
+        <MediaQuery query={['(max-width: 768px)', '(min-width: 768px) and (max-width: 1280px)', '(min-width: 1280px)']} bind:matches>
+            <h5>
+                mobile: '(max-width: 768px)' = {matches[0]}<br><br>
+                tablet: '(max-width: 1280px)' = {matches[1]}<br><br>
+                desktop: '(min-width: 1280px)' = {matches[2]}
+            </h5>
+        </MediaQuery>
+    {/if}
 </main>
 
 <style>
