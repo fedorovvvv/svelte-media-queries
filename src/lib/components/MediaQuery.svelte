@@ -11,8 +11,8 @@
     export let query:QueryAny = ''
     export let matches:MatchesType<typeof query> = false
     export let matchesArray:MatchesArray = []
-    
-    let mounted = false
+
+
     //@ts-expect-error
     let store:ReturnType<typeof mediaStore>
     
@@ -30,11 +30,9 @@
     }
 
     const start = () => {
-        if (mounted) {
-            //@ts-expect-errors
-            store = createMediaStore(query)
-            updateMatches()
-        }
+        //@ts-expect-errors
+        store = createMediaStore(query)
+        updateMatches()
     }
     
     const destroy = () => {
@@ -49,7 +47,6 @@
 
     
     onMount(() => {
-        mounted = true
         start()
     })
     
