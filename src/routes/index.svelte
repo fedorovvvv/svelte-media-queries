@@ -2,6 +2,7 @@
 	import Recursion from './Recursion.svelte';
 	import MediaQuery from '$lib/components/MediaQuery.svelte'
 	import Dynamic from './Dynamic.svelte'
+	import ObjectQuery from './ObjectQuery.svelte';
 
 	
 	let innerWidth = 0
@@ -44,7 +45,13 @@
         </h5>
     </MediaQuery>
 
+	<hr/>
+
 	<Recursion/>
+
+	<hr/>
+	
+	<ObjectQuery/>
 </main>
 
 <style>
@@ -54,12 +61,18 @@
 	:global(i) {
 		color: #009bb0
 	}
-	:global(code) {
+	:global(code), :global(pre) {
 			font-weight: 400;
 			color: #444;
 			background-color: #eee;
 			border-radius: 3px;
 			font-family: courier, monospace;
 			padding: 0 3px;
+	}
+	:global(pre) {
+		display: block;
+		padding: 10px;
+		border: 3px dashed #ddd;
+		overflow: auto;
 	}
 </style>

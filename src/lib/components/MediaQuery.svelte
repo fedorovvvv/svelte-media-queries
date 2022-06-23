@@ -3,14 +3,17 @@
 </script>
 
 <script lang='ts'>
+import { getType } from "$lib/utils/getType";
+
     import { mediaStore } from "$lib/utils/mediaStore";
 
     import { onDestroy, onMount } from "svelte";
-    import type { MatchesAny, MatchesArray, MatchesType, QueryAny } from "./MediaQuery.types";
+    import { Types, type MatchesArray, type MatchesObject, type MatchesType, type QueryAny } from "./MediaQuery.types";
 
     export let query:QueryAny = ''
     export let matches:MatchesType<typeof query> = false
     export let matchesArray:MatchesArray = []
+    export let matchesObject:MatchesObject = {}
 
 
     //@ts-expect-error
@@ -19,9 +22,10 @@
     const updateMatches = (...watches:any) => {
         if(query) {
             matchesArray = Array.isArray($store) ? $store : []
-            //@ts-expect-error
+            matchesObject = getType($store) === Types.object ? $store : {}
             matches = $store ?? (
-                Array.isArray(query) ? [] : false
+                getType(query) === Types.array ? [] :
+                getType(query) === Types.object ? {} : false
             )
         } else {
             matches = false
