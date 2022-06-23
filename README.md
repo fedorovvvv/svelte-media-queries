@@ -13,7 +13,7 @@ npm i svelte-media-queries
 query = {
   "mobile": "(max-width: 480px)",
   "tablet": "(min-width: 480px) and (max-width: 768px)",
-  "largeTabled": "(min-width: 768px) and (max-width: 1200px)",
+  "largeTablet": "(min-width: 768px) and (max-width: 1200px)",
   "desktop": "(min-width: 1200px)",
   "other": [
     "(min-width: 1200px)",
@@ -29,7 +29,7 @@ query = {
 matches = {
   "mobile": false,
   "tablet": true,
-  "largeTabled": false,
+  "largeTablet": false,
   "desktop": false,
   "other": [
     false,
