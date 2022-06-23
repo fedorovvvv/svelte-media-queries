@@ -42,7 +42,9 @@ matches = {
 }
 ```
 <img src="https://media.giphy.com/media/oYtVHSxngR3lC/giphy-tumblr.gif" width="350"/>
-Yes, yes, and it's all recursive and reactive🐹
+
+Yes, yes, and it's all recursive and reactive🐹  
+Try it in [Svelte REPL](https://svelte.dev/repl/7e97f1a1d1654701a0661e076037d160?version=3.48.0)  
 
 ## How to use
 
