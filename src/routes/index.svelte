@@ -1,10 +1,9 @@
 <script lang='ts'>
+	import Recursion from './Recursion.svelte';
 	import MediaQuery from '$lib/components/MediaQuery.svelte'
-import type { MatchesArray } from '$lib/components/MediaQuery.types';
 	import Dynamic from './Dynamic.svelte'
 
 	
-	let mobile
 	let innerWidth = 0
 </script>
 <svelte:window bind:innerWidth/>
@@ -44,6 +43,8 @@ import type { MatchesArray } from '$lib/components/MediaQuery.types';
             desktop: '(min-width: 1280px)' = {desktop}
         </h5>
     </MediaQuery>
+
+	<Recursion/>
 </main>
 
 <style>

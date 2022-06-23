@@ -5,8 +5,9 @@ export class Calc {
     static get(mql:MQLInline):Matches {return mql.media ? mql.matches : false}
 
     static inline(mql:MQLInline):Matches {return Calc.get(mql)}
-
-    static array(mql:MQLArray):MatchesArray {return mql.map(Calc.get)}
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    static array(mql:MQLArray):MatchesArray {return mql.map(mql => autoCalc(mql))}//recursion :(
 }
 
 export function autoCalc(mql:MQLInline):Matches

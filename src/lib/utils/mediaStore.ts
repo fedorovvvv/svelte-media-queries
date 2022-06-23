@@ -1,7 +1,7 @@
 import { writable, type Writable } from "svelte/store"
 import type { Matches, MatchesArray, Query, QueryAny, QueryArray } from "../components/MediaQuery.types"
 import { autoCalc } from "./calc"
-import { MQL } from "./converter"
+import { autoMQL, type MQLArray } from "./converter"
 
 export type Destroy = () => void
 
@@ -15,14 +15,14 @@ export function mediaStore(query:QueryArray):MediaStore<MatchesArray>
 
 export function mediaStore(query:QueryAny) {
     if (typeof window === "undefined") return writable();
+    const {subscribe, set} = writable()
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    const mql = autoMQL(query)
+    const handleChange = () => set(autoCalc(mql))
+    handleChange()
     if (typeof query === 'string') {
-        const {subscribe, set} = writable<Matches>()
-        const mql = MQL.inline(query)
-        const handleChange = () => set(autoCalc(mql))
-
-        handleChange()
         mql.addEventListener('change', handleChange)
-
         return {
             subscribe,
             destroy() {
@@ -31,17 +31,18 @@ export function mediaStore(query:QueryAny) {
         }
     }
     if (Array.isArray(query)) {
-        const {subscribe, set} = writable<MatchesArray>()
-        const mql = MQL.array(query)
-        const handleChange = () => set(autoCalc(mql))
+        const toggleEvent = (mqls:MQLArray = [], method = 'addEventListener') => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+            mqls.flat(Infinity).forEach(mql => mql[method]('change', handleChange))
+        }
 
-        handleChange()
-        mql.map(mq => mq.addEventListener('change', handleChange))
+        toggleEvent(mql)
 
         return {
             subscribe,
             destroy() {
-                mql.map(mq => mq.removeEventListener('change', handleChange))
+                toggleEvent(mql, 'removeEventListener')
             }
         }
     }
