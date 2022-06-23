@@ -1,4 +1,5 @@
 <script lang='ts'>
+	import Json from './Json.svelte';
 	import MediaQuery from '$lib/components/MediaQuery.svelte';
     const query = [
         '(max-width: 300px)',
@@ -11,9 +12,6 @@
 </script>
 <h2>Recursion query</h2>
 <MediaQuery {query} let:matches>
-    <h3>query:</h3>
-    <code>{JSON.stringify(query)}</code>
-
-    <h3>matches:</h3>
-    <code>{JSON.stringify(matches)}</code>
+    <Json name='query' data={query}/>
+    <Json name='matches' data={matches}/>
 </MediaQuery>

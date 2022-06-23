@@ -6,7 +6,7 @@
     import { mediaStore } from "$lib/utils/mediaStore";
 
     import { onDestroy, onMount } from "svelte";
-    import type { MatchesAny, MatchesArray, MatchesType, QueryAny } from "./MediaQuery.types";
+    import type { MatchesArray, MatchesType, QueryAny } from "./MediaQuery.types";
 
     export let query:QueryAny = ''
     export let matches:MatchesType<typeof query> = false
