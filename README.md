@@ -7,7 +7,44 @@
 ```npm
 npm i svelte-media-queries
 ```
-## how to use
+### What can I do?
+
+```js
+query = {
+  "mobile": "(max-width: 480px)",
+  "tablet": "(min-width: 480px) and (max-width: 768px)",
+  "largeTabled": "(min-width: 768px) and (max-width: 1200px)",
+  "desktop": "(min-width: 1200px)",
+  "other": [
+    "(min-width: 1200px)",
+    "(max-height: 900px)"
+  ],
+  "themes": {
+    "dark": "(prefers-color-scheme: dark)",
+    "light": "(prefers-color-scheme: light)"
+  }
+}
+```
+```js
+matches = {
+  "mobile": false,
+  "tablet": true,
+  "largeTabled": false,
+  "desktop": false,
+  "other": [
+    false,
+    true
+  ],
+  "themes": {
+    "dark": false,
+    "light": true
+  }
+}
+```
+<img src="https://media.giphy.com/media/oYtVHSxngR3lC/giphy-tumblr.gif" width="350"/>
+Yes, yes, and it's all recursive and reactive🐹
+
+## How to use
 
 ### Query? Yes, just like in CSS🙊
 ```js
