@@ -1,7 +1,7 @@
 import type { Query, QueryAny, QueryArray } from "../components/MediaQuery.types"
 
 export type MQLInline = MediaQueryList
-export type MQLArray = MediaQueryList[]
+export type MQLArray = MQLAny[]
 export type MQLAny = MQLInline | MQLArray
 
 export class MQL {
@@ -9,8 +9,9 @@ export class MQL {
     static get(query:Query) {return window.matchMedia(query)}
 
     static inline(query:Query):MQLInline {return MQL.get(query)}
-
-    static array(queries:QueryArray):MQLArray {return queries.map(query => MQL.get(query))}
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    static array(queries:QueryArray):MQLArray {return queries.map(query => autoMQL(query))} //recursion :(
 }
 
 export function autoMQL(query:Query):MQLInline
