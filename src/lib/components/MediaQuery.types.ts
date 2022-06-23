@@ -19,4 +19,5 @@ export type MatchesObject = ObjectType<MatchesAny>
 export type MatchesAny = Matches | MatchesArray | MatchesObject
 
 export type MatchesType<T> =
-    T extends Query ? Matches : QueryArray
+    T extends Query ? Matches :
+    T extends QueryObject ? MatchesObject : QueryArray

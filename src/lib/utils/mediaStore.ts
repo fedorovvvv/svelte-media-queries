@@ -1,5 +1,5 @@
 import { writable, type Writable } from "svelte/store"
-import type { Matches, MatchesArray, Query, QueryAny, QueryArray } from "../components/MediaQuery.types"
+import type { Matches, MatchesArray, MatchesObject, Query, QueryAny, QueryArray, QueryObject } from "../components/MediaQuery.types"
 import { autoCalc } from "./calc"
 import { autoMQL } from "./converter"
 import { autoMQLEvent, MQLEventMethods } from "./MQLEvent"
@@ -13,6 +13,7 @@ export interface MediaStore<T = Matches> {
 
 export function mediaStore(query:Query):MediaStore
 export function mediaStore(query:QueryArray):MediaStore<MatchesArray>
+export function mediaStore(query:QueryObject):MediaStore<MatchesObject>
 
 export function mediaStore(query:QueryAny) {
     if (typeof window === "undefined") return writable();

@@ -1,6 +1,6 @@
 <script lang='ts'>
 	import MediaQuery from '$lib/components/MediaQuery.svelte';
-    import Json from './Json.svelte';
+    import Data from './Data.svelte';
     const query = {
         mobile: '(max-width: 480px)',
         tablet: '(min-width: 480px) and (max-width: 768px)',
@@ -15,6 +15,6 @@
 </script>
 <h2>Object query (and recursion)</h2>
 <MediaQuery {query} let:matches>
-    <Json name='query' data={query}/>
-    <Json name='matches' data={matches}/>
+    <Data name='query' data={query}/>
+    <Data name='matches' data={matches}/>
 </MediaQuery>
