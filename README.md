@@ -1,5 +1,9 @@
 # Svelte CSS media queries 🐥 
 
+[![npm version](http://img.shields.io/npm/v/svelte-media-queries.svg)](https://www.npmjs.com/package/svelte-media-queries)
+[![npm downloads](https://img.shields.io/npm/dm/svelte-media-queries.svg)](https://www.npmjs.com/package/svelte-media-queries)
+![license](https://img.shields.io/npm/l/svelte-media-queries)
+
 ### [Demo - Svelte REPL](https://svelte.dev/repl/7e97f1a1d1654701a0661e076037d160?version=3.48.0)
 ### Lightweight, comfortable, like Svelte🐣
 [![Rate this package](https://badges.openbase.com/js/rating/svelte-media-queries.svg?style=openbase&token=myaBaR9V2YuM2LLiUs0nOTMlrXb1fGC6F9XuQa3Y0sw=)](https://openbase.com/js/svelte-media-queries?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge)
