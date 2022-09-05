@@ -78,7 +78,8 @@ let:matches={foo}
   import { createMediaStore } from 'svelte-media-queries'
   
   const matches = createMediaStore(query)
-  onDestroy(() => matches.destroy())
+  
+  onDestroy(() => matches.destroy()) //Stop events for calculation
 </script>
 ```
 [query example](https://github.com/fedorovvvv/svelte-media-queries#what-can-i-do)
