@@ -5,7 +5,7 @@
 ![license](https://img.shields.io/npm/l/svelte-media-queries)
 
 ### [Demo - Svelte REPL](https://svelte.dev/repl/7e97f1a1d1654701a0661e076037d160?version=3.48.0)
-### Lightweight, comfortable, like Svelte🐣
+### Lightweight, comfortable, like Svelte🐣 | Svelte store / Svelte component
 [![Rate this package](https://badges.openbase.com/js/rating/svelte-media-queries.svg?style=openbase&token=myaBaR9V2YuM2LLiUs0nOTMlrXb1fGC6F9XuQa3Y0sw=)](https://openbase.com/js/svelte-media-queries?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge)
 
 ## how to install
@@ -71,6 +71,14 @@ let:matches
 let:matches={foo}
 ```
 ### Examples
+#### Store
+```svelte
+<script>
+  import { createMediaStore } from 'svelte-media-queries'
+  const matches = createMediaStore(query)
+</script>
+```
+[query example](https://github.com/fedorovvvv/svelte-media-queries#what-can-i-do)
 #### Slot
 ```svelte
 <script>
