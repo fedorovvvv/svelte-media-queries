@@ -74,8 +74,11 @@ let:matches={foo}
 #### Store
 ```svelte
 <script>
+  import { onDestroy } from 'svelte'
   import { createMediaStore } from 'svelte-media-queries'
+  
   const matches = createMediaStore(query)
+  onDestroy(() => matches.destroy())
 </script>
 ```
 [query example](https://github.com/fedorovvvv/svelte-media-queries#what-can-i-do)
