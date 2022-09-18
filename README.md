@@ -6,6 +6,8 @@
 
 ### [Demo - Svelte REPL](https://svelte.dev/repl/7e97f1a1d1654701a0661e076037d160?version=3.48.0)
 ### Lightweight, comfortable, like Svelte🐣 | Svelte store / Svelte component
+With TypeScript support💙  
+
 [![Rate this package](https://badges.openbase.com/js/rating/svelte-media-queries.svg?style=openbase&token=myaBaR9V2YuM2LLiUs0nOTMlrXb1fGC6F9XuQa3Y0sw=)](https://openbase.com/js/svelte-media-queries?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge)
 
 ## how to install
@@ -28,7 +30,7 @@ query = {
     "dark": "(prefers-color-scheme: dark)",
     "light": "(prefers-color-scheme: light)"
   }
-}
+} // 
 ```
 ```js
 matches = {
@@ -72,12 +74,12 @@ let:matches={foo}
 ```
 ### Examples
 #### Store
-```svelte
+```js
 <script>
   import { onDestroy } from 'svelte'
   import { createMediaStore } from 'svelte-media-queries'
   
-  const matches = createMediaStore(query)
+  const matches = createMediaStore(query) //The type of the store will completely repeat the query
   
   onDestroy(() => matches.destroy()) //Stop events for calculation
 </script>
