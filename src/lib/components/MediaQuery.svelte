@@ -15,7 +15,6 @@ import { getType } from "$lib/utils/getType";
     export let matchesArray:MatchesArray = []
     export let matchesObject:MatchesObject = {}
 
-
     //@ts-expect-error
     let store:ReturnType<typeof mediaStore>
     
@@ -34,7 +33,6 @@ import { getType } from "$lib/utils/getType";
     }
 
     const start = () => {
-        //@ts-expect-errors
         store = createMediaStore(query)
         updateMatches()
     }

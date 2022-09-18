@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 export enum Types {
     string = 'string',
     array = 'array',
@@ -13,9 +14,11 @@ export type QueryArray = QueryAny[]
 export type QueryObject = ObjectType<QueryAny>
 export type QueryAny = Query | QueryArray | QueryObject
 
-export type Matches = boolean
-export type MatchesArray = MatchesAny[]
-export type MatchesObject = ObjectType<MatchesAny>
+export type Matches<T = boolean> = T
+//@ts-ignore
+export type MatchesArray<T = MatchesAny[]> = T
+export type MatchesObject<T = ObjectType<MatchesAny>> = T
+//@ts-ignore
 export type MatchesAny = Matches | MatchesArray | MatchesObject
 
 export type MatchesType<T> =
