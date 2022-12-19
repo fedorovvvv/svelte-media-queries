@@ -57,7 +57,7 @@
         "svelte2tsx": "^0.5.10"
     },
     "exports": {
-        ".": "./src/lib/components/MediaQuery.svelte"
+        ".": "./components/MediaQuery.svelte"
     }
 }
 
