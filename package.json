@@ -55,5 +55,9 @@
     "type": "module",
     "dependencies": {
         "svelte2tsx": "^0.5.10"
+    },
+    "exports": {
+        ".": "./components/MediaQuery.svelte"
     }
 }
+
