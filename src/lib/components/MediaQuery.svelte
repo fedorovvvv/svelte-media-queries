@@ -1,10 +1,10 @@
 <script context="module" lang='ts'> 
-    export {createMediaStore}
+    export const createMediaStore = mediaStore
 </script>
 <script lang='ts'>
     import { getType } from "$lib/utils/getType";
 
-    import { createMediaStore } from "$lib/utils/mediaStore";
+    import { mediaStore } from "$lib/utils/mediaStore";
 
     import { onDestroy, onMount } from "svelte";
     import { Types, type MatchesArray, type MatchesObject, type MatchesType, type QueryAny } from "./MediaQuery.types";

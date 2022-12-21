@@ -14,7 +14,7 @@ export interface MediaStore<T = Matches> {
     destroy: Destroy
 }
 
-export function createMediaStore<T extends QueryAny>(query:T):MediaStore<ConvertQueryAny<T>> {
+export function mediaStore<T extends QueryAny>(query:T):MediaStore<ConvertQueryAny<T>> {
     if (typeof window === "undefined") return {...writable(undefined), destroy: () => {}};
     const {subscribe, set} = writable<ConvertQueryAny<T> | undefined>(undefined)
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
