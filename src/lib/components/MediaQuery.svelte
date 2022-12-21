@@ -1,3 +1,6 @@
+<script context="module" lang='ts'> 
+    export {createMediaStore}
+</script>
 <script lang='ts'>
     import { getType } from "$lib/utils/getType";
 
