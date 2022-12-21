@@ -1,6 +1,6 @@
 <script lang='ts'>
+	import MediaQuery from '$lib/MediaQuery.svelte';
 	import Data from './Data.svelte';
-	import MediaQuery from '$lib/components/MediaQuery.svelte';
     const query = [
         '(max-width: 300px)',
         '(min-width: 432px) and (max-width: 1200px)',

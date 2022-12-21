@@ -1,5 +1,5 @@
 <script lang='ts'>
-	import MediaQuery from '$lib/components/MediaQuery.svelte';
+	import MediaQuery from '$lib/MediaQuery.svelte';
     import Data from './Data.svelte';
     const query = {
         mobile: '(max-width: 480px)',

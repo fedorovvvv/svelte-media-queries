@@ -1,9 +1,9 @@
 {
     "name": "svelte-media-queries",
     "description": "A light and magical Svelte component for CSS media queries🐹",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "license": "MIT",
-    "main": "./src/lib/components/MediaQuery.svelte",
+    "main": "./src/lib/index.js",
     "svelte": "./src/lib/components/MediaQuery.svelte",
     "repository": "https://github.com/fedorovvvv/svelte-media-queries",
     "author": "Nikita Fedorov <nikitafedorov7@yandex.ru>",
@@ -26,11 +26,11 @@
         "svelte3"
     ],
     "scripts": {
-        "dev": "svelte-kit dev",
-        "build": "svelte-kit build",
-        "package": "svelte-kit package",
-        "preview": "svelte-kit preview",
-        "prepare": "svelte-kit sync",
+        "dev": "vite dev",
+        "build": "vite build",
+        "package": "svelte-package",
+        "preview": "vite preview",
+        "prepare": "vite sync",
         "check": "svelte-check --tsconfig ./tsconfig.json",
         "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
         "lint": "prettier --check --plugin-search-dir=. . && eslint .",
@@ -54,10 +54,8 @@
     },
     "type": "module",
     "dependencies": {
-        "svelte2tsx": "^0.5.10"
-    },
-    "exports": {
-        ".": "./src/lib/components/MediaQuery.svelte"
+        "@sveltejs/package": "^1.0.1",
+        "svelte2tsx": "^0.5.10",
+        "vite": "^4.0.2"
     }
 }
-
