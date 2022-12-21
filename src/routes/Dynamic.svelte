@@ -1,6 +1,6 @@
 <script lang='ts'>
     import type { MatchesAny, QueryAny } from "$lib/components/MediaQuery.types";
-	import MediaQuery from "$lib/MediaQuery.svelte";
+	import MediaQuery from "$lib/components/MediaQuery.svelte";
 	
 	let value = `(min-width: 500px);   (min-width: 768px) and (max-width: 1280px);   (max-width: 700px)`
 	$: query = (() => {
