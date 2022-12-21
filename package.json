@@ -3,8 +3,8 @@
     "description": "A light and magical Svelte component for CSS media queries🐹",
     "version": "1.4.3",
     "license": "MIT",
-    "main": "./src/lib/components/MediaQuery.svelte",
-    "svelte": "./src/lib/components/MediaQuery.svelte",
+    "main": "./components/MediaQuery.svelte",
+    "svelte": "./components/MediaQuery.svelte",
     "repository": "https://github.com/fedorovvvv/svelte-media-queries",
     "author": "Nikita Fedorov <nikitafedorov7@yandex.ru>",
     "keywords": [
