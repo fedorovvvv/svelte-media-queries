@@ -26,7 +26,7 @@ export class MQLEvent {
 
 export function autoMQLEvent(mql:MQLAny, handler = () => {}, method:MQLEventMethods = MQLEventMethods.add) {
     const type = getType(mql)
-    if (mql instanceof MediaQueryList) return MQLEvent.inline(mql, handler, method)
+    if (type === Types.mediaQueryList) return MQLEvent.inline(mql as MediaQueryList, handler, method)
     //@ts-ignore
     if(type === Types.array) return MQLEvent.array(mql, handler, method)
     //@ts-ignore

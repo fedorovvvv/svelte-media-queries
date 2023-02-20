@@ -25,7 +25,7 @@ export function autoCalc(mql:MQLArray):MatchesArray
 
 export function autoCalc(mql:MQLAny) {
     const type = getType(mql)
-    if(mql instanceof MediaQueryList) return Calc.inline(mql)
+    if(type === Types.mediaQueryList) return Calc.inline(mql as MediaQueryList)
     //@ts-ignore
     if(type === Types.array) return Calc.array(mql)
     //@ts-ignore

@@ -2,7 +2,8 @@
 export enum Types {
     string = 'string',
     array = 'array',
-    object = 'object'
+    object = 'object',
+    mediaQueryList = 'mediaQueryList'
 }
 
 export interface ObjectType<T> {

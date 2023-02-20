@@ -4,7 +4,7 @@
 	
 	let value = `(min-width: 500px);   (min-width: 768px) and (max-width: 1280px);   (max-width: 700px)`
 	$: query = (() => {
-		let res:QueryAny = value.replace(/\s/g,'').split(';')
+		let res:QueryAny = value.replace(/\s/g,' ').split(';')
 		res.length === 1 && (res = res.join())
 		return res
 	})()
