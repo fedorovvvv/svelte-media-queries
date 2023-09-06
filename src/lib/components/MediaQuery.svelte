@@ -7,26 +7,29 @@
     import { mediaStore } from "$lib/utils/mediaStore";
 
     import { onDestroy, onMount } from "svelte";
-    import { Types, type MatchesArray, type MatchesObject, type MatchesType, type QueryAny } from "./MediaQuery.types";
+    import { Types, type MatchesArray, type MatchesObject, type MatchesType, type QueryAny} from "./MediaQuery.types";
 
-    export let query:QueryAny = ''
-    export let matches:MatchesType<typeof query> = false
+    type T = $$Generic<QueryAny>
+    type CurrentMatches = MatchesType<T>
+
+    export let query:T = '' as T
+    export let matches:CurrentMatches = false as CurrentMatches
     export let matchesArray:MatchesArray = []
     export let matchesObject:MatchesObject = {}
 
-    //@ts-expect-error
-    let store:ReturnType<typeof mediaStore>
+
+    let store:ReturnType<typeof mediaStore<T>>
     
     const updateMatches = (...watches:any) => {
         if(query) {
             matchesArray = Array.isArray($store) ? $store : []
             matchesObject = getType($store) === Types.object ? $store : {}
-            matches = $store ?? (
+            matches = ($store as CurrentMatches) ?? (
                 getType(query) === Types.array ? [] :
                 getType(query) === Types.object ? {} : false
-            )
+            ) as CurrentMatches
         } else {
-            matches = false
+            matches = false as CurrentMatches
             matchesArray = []
         }
     }
@@ -58,4 +61,5 @@
     $:update(query)
     $:updateMatches($store)
 </script>
+
 <slot {matches} {matchesArray}/>
